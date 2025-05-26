@@ -1,0 +1,192 @@
+﻿1. Variables & Data Types
+go
+CopyEdit
+var name string = "Aakrit"
+var age int = 21
+var price float64 = 99.99
+var isMember bool = true
+
+// Short form
+city := "Kathmandu"
+
+// Constants
+const Pi = 3.1415
+
+2. Conditional Statements
+go
+CopyEdit
+// if-else
+if age >= 18 {
+    fmt.Println("Adult")
+} else {
+    fmt.Println("Minor")
+}
+
+// if-else if
+if marks >= 90 {
+    fmt.Println("A Grade")
+} else if marks >= 75 {
+    fmt.Println("B Grade")
+} else {
+    fmt.Println("C Grade")
+}
+
+// switch
+switch day {
+case "Monday":
+    fmt.Println("Workday")
+case "Sunday":
+    fmt.Println("Weekend")
+default:
+    fmt.Println("Unknown")
+}
+
+3. Loops
+go
+CopyEdit
+// For loop
+for i := 1; i <= 5; i++ {
+    fmt.Println(i)
+}
+
+// While-style
+i := 0
+for i < 5 {
+    fmt.Println(i)
+    i++
+}
+
+// Infinite loop
+for {
+    fmt.Println("Looping forever")
+    break
+}
+
+// Range loop
+nums := []int{1, 2, 3}
+for i, val := range nums {
+    fmt.Println(i, val)
+}
+
+4. Functions
+go
+CopyEdit
+// Basic
+func greet(name string) {
+    fmt.Println("Hello", name)
+}
+
+// With return
+func add(a int, b int) int {
+    return a + b
+}
+
+// Multiple returns
+func divide(a, b int) (int, error) {
+    if b == 0 {
+        return 0, fmt.Errorf("Cannot divide by zero")
+    }
+    return a / b, nil
+}
+
+5. Structs
+go
+CopyEdit
+type Person struct {
+    Name string
+    Age  int
+}
+
+p := Person{Name: "Aakrit", Age: 21}
+fmt.Println(p.Name)
+
+// Function with struct
+func greetPerson(p Person) {
+    fmt.Printf("Hi %s, age %d\n", p.Name, p.Age)
+}
+
+6. Interfaces
+go
+CopyEdit
+type Shape interface {
+    Area() float64
+    Perimeter() float64
+}
+
+type Circle struct {
+    Radius float64
+}
+
+func (c Circle) Area() float64 {
+    return 3.14 * c.Radius * c.Radius
+}
+
+func (c Circle) Perimeter() float64 {
+    return 2 * 3.14 * c.Radius
+}
+
+func printShape(s Shape) {
+    fmt.Println("Area:", s.Area())
+    fmt.Println("Perimeter:", s.Perimeter())
+}
+
+7. Slices
+go
+CopyEdit
+// Declare and initialize
+nums := []int{1, 2, 3}
+
+// Append
+nums = append(nums, 4)
+
+// Length and capacity
+fmt.Println(len(nums), cap(nums))
+
+// Slice a slice
+part := nums[1:3]
+
+// Loop
+for i, val := range nums {
+    fmt.Println(i, val)
+}
+
+8. Maps
+go
+CopyEdit
+// Declare
+scores := map[string]int{"Alice": 90, "Bob": 80}
+
+// Add or update
+scores["Charlie"] = 85
+
+// Access
+fmt.Println(scores["Alice"])
+
+// Delete
+delete(scores, "Bob")
+
+// Loop
+for key, value := range scores {
+    fmt.Println(key, value)
+}
+
+9. Error Handling
+go
+CopyEdit
+// Custom error
+func divide(a, b int) (int, error) {
+    if b == 0 {
+        return 0, errors.New("Cannot divide by zero")
+    }
+    return a / b, nil
+}
+
+// Usage
+result, err := divide(10, 0)
+if err != nil {
+    fmt.Println("Error:", err)
+} else {
+    fmt.Println("Result:", result)
+}
+
+
